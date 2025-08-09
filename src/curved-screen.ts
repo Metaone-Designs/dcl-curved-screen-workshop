@@ -35,11 +35,11 @@ export interface CurvedScreenOptions {
  * @returns An array of numbers representing the UV coordinates for a box mesh.
  */
 export function setUVsForSegment(segmentIndex: number, totalSegments: number): number[] {
-    // 'U' is the horizontal coordinate of a texture (from 0 at the left edge to 1 at the right).
-    // We calculate the start and end U-coordinates for this specific segment.
-    // For example, for the first of 10 segments, uStart would be 0.0 and uEnd would be 0.1.
-    const uStart = segmentIndex / totalSegments;
-    const uEnd = (segmentIndex + 1) / totalSegments;
+    // FIX 1: Reverse the order that texture slices are applied to the physical
+    // segments. This gets the slices in the correct left-to-right order.
+    const reversedSegmentIndex = (totalSegments - 1) - segmentIndex;
+    const uStart = reversedSegmentIndex / totalSegments;
+    const uEnd = (reversedSegmentIndex + 1) / totalSegments;
 
     // This long array might look intimidating, but it's just defining the UV coordinates
     // for each of the 6 faces of a standard box. We only care about ONE face.
@@ -51,16 +51,15 @@ export function setUVsForSegment(segmentIndex: number, totalSegments: number): n
         0, 0, 0, 0, 0, 0, 0, 0, // Face 3 (Back) - Not visible
         0, 0, 0, 0, 0, 0, 0, 0, // Face 4 (Front) - Not visible
         // Face 5 (Right) - THIS IS THE VISIBLE SCREEN FACE
-        // We map our calculated uStart and uEnd to the corners of this face.
-        // The 'V' coordinate (vertical) goes from 0 (bottom) to 1 (top).
-        uStart, 1, // Top-left corner of the texture slice
-        uEnd, 1,   // Top-right corner
-        uEnd, 0,   // Bottom-right corner
-        uStart, 0, // Bottom-left corner
+        // FIX 2: Swap uStart and uEnd in the mapping below. This un-mirrors
+        // each individual slice of the texture.
+        uEnd, 1,   // Top-left corner of the texture slice
+        uStart, 1, // Top-right corner
+        uStart, 0, // Bottom-right corner
+        uEnd, 0,   // Bottom-left corner
         0, 0, 0, 0, 0, 0, 0, 0, // Face 6 (Left) - Not visible
     ];
 }
-
 // --- The Main Component Function: The "Recipe" ---
 /**
  * Creates a procedurally generated curved screen composed of multiple segments.

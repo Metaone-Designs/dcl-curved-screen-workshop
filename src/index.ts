@@ -31,7 +31,7 @@ export function main() {
   // We attach the VideoPlayer component to our dedicated entity.
   VideoPlayer.create(videoPlayerEntity, {
     // The URL of the HLS (.m3u8) video stream.
-    src: 'https://player.vimeo.com/external/887766104.m3u8?s=ae3d36b03bdf2677371633c0f4fa0e6f71315925&logging=false',
+    src: 'https://player.vimeo.com/external/1097688868.m3u8?s=f997f22217ef2a9877977459680bf3a94c9a8930&logging=false',
     // Set to true to make the video play automatically when the scene loads.
     playing: true,
     // Set to true to make the video loop when it ends.

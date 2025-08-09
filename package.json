@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@dcl/asset-packs": "latest",
-    "@dcl/js-runtime": "7.9.2",
+    "@dcl/js-runtime": "7.9.3",
     "@dcl/sdk": "latest"
   },
   "engines": {

@@ -18,7 +18,12 @@ export function main() {
   // that we created in Blender. This is the static frame for our screen.
   GltfContainer.create(sceneBase, { src: 'models/curved_screen.glb' });
   // We also give it a Transform so it exists in the scene.
-  Transform.create(sceneBase);
+  Transform.create(sceneBase, { 
+    position: Vector3.create(.085,0,0),
+    rotation: Quaternion.fromEulerDegrees(0, 0, 0),
+    scale: Vector3.create(1, .5, .5)
+  });
+
 
   // --- Step 2: Set up the Video Player ---
   // This section handles the video playback logic.
@@ -50,9 +55,9 @@ export function main() {
     // We provide the "options" object that our component's interface expects.
     // These position and rotation values have been carefully chosen to place
     // our procedural screen perfectly inside the cutout of our 3D model.
-    position: Vector3.create(.875, 5.3, 16),
+    position: Vector3.create(.95, 2.65, 8),
     rotation: Quaternion.fromEulerDegrees(0, 90, 0),
-    scale: Vector3.create(1, 1, 1),
+    scale: Vector3.create(.5, .5, 1),
     // We pass in the video texture we just created.
     videoTexture: videoTexture,
     // And here's the "knob" we can turn. This is the fun part to demonstrate live.

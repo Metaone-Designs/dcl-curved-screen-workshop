@@ -8,7 +8,7 @@ This guide provides a complete, step-by-step walkthrough for building the "Confi
 ## 1. Project Setup
 
 1.  **Create a Project Folder:** Create a new, empty folder on your PC.
-2.  **Initialize the Scene:** Open a terminal in your new folder and run `dcl init`, selecting the "Blank scene" template.
+2.  **Initialize the Scene:** Open a terminal in your new folder and run `npx @dcl/sdk-commands init`, selecting the "Blank scene" template.
 3.  **Create `models` folder:** Inside your project, create a new folder named `models`. Place your `curved_screen.glb` file inside it.
 
 ---

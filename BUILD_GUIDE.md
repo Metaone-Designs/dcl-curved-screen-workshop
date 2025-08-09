@@ -1,13 +1,4 @@
-Of course\! I'm glad the previous fix worked. It's frustrating when formatting doesn't behave as expected.
 
-I'll apply the same indented code block formatting to your `BUILD_GUIDE.md`. I've also taken the liberty of making two small but important corrections to the code within the guide to ensure it's bug-free for your students:
-
-1.  Fixed the `MeshRenderer.setBox()` call, which had the same error as before.
-2.  Removed extra markdown characters from the video URL string in `index.ts` that would have caused an error.
-
-Here is the fully corrected and reformatted `BUILD_GUIDE.md`.
-
-```markdown
 # The Configurable Curved Screen: Build Guide
 
 This guide provides a complete, step-by-step walkthrough for building the "Configurable Curved Screen" scene from a blank project, as taught in the Creator Academy advanced workshop.
@@ -151,5 +142,3 @@ This is the main entry point that imports our 3D model and uses our new screen c
 From your project's root directory, run the following command in your terminal:
 
     dcl start
-
-```

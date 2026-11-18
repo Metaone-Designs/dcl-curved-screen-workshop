@@ -23,8 +23,5 @@
     "singleQuote": true,
     "printWidth": 120,
     "trailingComma": "none"
-  },
-  "dependencies": {
-    "@m1d/dcl-components": "^2.0.1"
   }
 }
